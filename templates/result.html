@@ -4,19 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Analisis</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .header { text-align: center; margin-bottom: 30px; }
-        .image-box { text-align: center; margin-bottom: 30px; }
-        img { max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        
-        .result-card { border: 1px solid #ddd; padding: 20px; border-radius: 10px; margin-bottom: 15px; display: flex; align-items: flex-start; }
-        .badge { font-size: 2em; font-weight: bold; padding: 10px 20px; border-radius: 10px; color: white; margin-right: 20px; min-width: 80px; text-align: center; }
-        .info h3 { margin: 0 0 5px 0; color: #333; }
-        .recycle-rate { font-weight: bold; color: #555; }
-        .back-btn { display: block; text-align: center; margin-top: 30px; text-decoration: none; color: #008CBA; font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="result.css">
 </head>
 <body>
 
@@ -34,7 +22,7 @@
         {% if items %}
             {% for item in items %}
             <div class="result-card">
-                <div class="badge" style="background-color: {{ item.color }};">
+                <div class="badge">
                     {{ item.short_name }}
                 </div>
                 
@@ -52,7 +40,7 @@
             </div>
         {% endif %}
 
-        <a href="/" class="back-btn">← Coba Gambar Lain</a>
+        <a href="main.html" class="back-btn">← Coba Gambar Lain</a>
     </div>
 
 </body>
