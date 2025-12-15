@@ -4,18 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cek Jenis Sampah Plastik</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>🔍 Detektor Plastik AI</h1>
         <p>Upload foto sampah plastik kamu untuk mengetahui jenis dan cara daur ulangnya.</p>
         
-        <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" accept="image/*" required>
+        <form id="uploadForm" method="POST" action="{{ url_for('index') }}" enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="file" accept="image/*" required>
             <br>
-            <button type="submit">Analisis Gambar</button>
+            <button type="submit" id="submitBtn">Analisis Gambar</button>
         </form>
+        
+        <div id="loading" style="display: none;">
+            <p>⏳ Sedang menganalisis gambar...</p>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            // Show loading indicator
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').textContent = 'Memproses...';
+            
+            // Form will submit normally to Flask
+            // This just adds visual feedback
+        });
+        
+        // Preview image before upload
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                console.log('File selected:', file.name);
+            }
+        });
+    </script>
 </body>
 </html>

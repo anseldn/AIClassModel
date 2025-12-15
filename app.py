@@ -116,7 +116,7 @@ def index():
                                    result_img=result_filename,
                                    items=detected_items)
 
-    return render_template('index.html')
+    return render_template('main.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
